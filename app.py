@@ -179,7 +179,7 @@ def generate_svg():
 
 
 if __name__ == '__main__':
-    background_thread = Thread(target=schedule_task, daemon=True)
-    background_thread.start()
-
+    # background_thread = Thread(target=schedule_task, daemon=True)
+    # background_thread.start()
+    print("starting flask server")
     app.run(debug=True,port=8000)
