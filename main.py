@@ -1,8 +1,8 @@
 from download_synop import download_file
-from decoding import process_synop_files
-from contours import generate_geojson
+from python.decoding import process_synop_files
+from python.contours import generate_geojson
 from datetime import datetime, timedelta, timezone
-from delete import delete_file
+from python.delete import delete_file
 import time,os
 
 def main():

@@ -10,6 +10,11 @@ from metpy.plots import StationPlot, sky_cover, current_weather, pressure_tenden
 import io,os,json
 from flask_compress import Compress
 from flask_caching import Cache
+from threading import Thread
+from main import schedule_task
+import sys
+
+sys.path.append('python')
 
 import matplotlib
 matplotlib.use('Agg')
@@ -169,5 +174,9 @@ def generate_svg():
     
     return jsonify(response_data)
 
+
 if __name__ == '__main__':
+    background_thread = Thread(target=schedule_task, daemon=True)
+    background_thread.start()
+
     app.run(debug=True,port=8000)
