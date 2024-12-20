@@ -13,8 +13,11 @@ from flask_caching import Cache
 from threading import Thread
 from main import schedule_task
 import sys
+import threading
 
 sys.path.append('python')
+
+# threading.Thread(target=schedule_task, daemon=True).start()
 
 import matplotlib
 matplotlib.use('Agg')

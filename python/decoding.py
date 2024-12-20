@@ -1,6 +1,14 @@
 import os,math
 from pymetdecoder import synop as s
 import pandas as pd
+import warnings
+import sys
+import os
+# Suppress all warnings globally
+warnings.simplefilter("ignore")
+
+sys.stdout = open(os.devnull, 'w')
+sys.stderr = open(os.devnull, 'w')
 
 # Constants
 STATION_TYPE = "AAXX"
@@ -601,6 +609,6 @@ station_codes_file = "static/WMO_stations_data.csv"
 directory = 'Synop'
 output_directory = "Decoded_Data"
 a=["00","03","06","09","12","15","18","21"]
-# for x in a:
-#     process_synop_files(station_codes_file, directory, output_directory, f"20241219{x}")
+for x in a:
+    process_synop_files(station_codes_file, directory, output_directory, f"20241220{x}")
         
